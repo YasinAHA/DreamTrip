@@ -1,7 +1,7 @@
 # Proyecto final DIW Yasin techfuture2025
 
 ## Estructura del proyecto
-´´´text
+```text
 techfuture2025/
 │── node_modules/      # Dependencias instaladas (tras ejecutar npm install)
 │── src/
@@ -22,4 +22,4 @@ techfuture2025/
 │── package.json  # Configuración de NPM  
 │── package-lock.json  
 │── README.md  
-´´´
+```
