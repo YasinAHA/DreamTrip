@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+a {
+  text-decoration: none;
+}
+
+#navbar {
+  background-color: #111827;
+}
+#navbar .navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+}
+#navbar .navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+#navbar .navbar-nav .nav-link:hover {
+  color: #1d4ed8;
+}
+
+#hero {
+  background-image: url("../assets/hero-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#hero p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+#hero .btn {
+  background-color: #1d4ed8;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+#hero .btn:hover {
+  background-color: rgb(22.9632653061, 61.7632653061, 171.0367346939);
+}
+
+#services .card {
+  transition: all 0.3s ease;
+}
+#services .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+#services .card .card-title {
+  font-size: 1.2rem;
+  color: #111827;
+}
+#services .card .card-text {
+  font-size: 1rem;
+  color: #111827;
+}
+#services .card img {
+  max-height: 250px;
+  object-fit: cover;
+}
+
+#footer {
+  background-color: #111827;
+  color: white;
+}
+#footer .container p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+#footer .container a {
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+#footer .container a:hover {
+  color: #1d4ed8;
+}
+
+/*# sourceMappingURL=style.css.map */

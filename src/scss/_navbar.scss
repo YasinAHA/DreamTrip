@@ -1,0 +1,20 @@
+@import 'variables';
+
+#navbar {
+    background-color: $dark-color;
+
+    .navbar-brand {
+        color: $white-color;
+        font-weight: bold;
+    }
+
+    .navbar-nav .nav-link {
+        color: $white-color;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $primary-color;
+        }
+    }
+}

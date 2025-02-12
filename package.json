@@ -1,0 +1,25 @@
+{
+  "name": "techfuture2025",
+  "version": "1.0.0",
+  "description": "Sitio web de TechFuture 2025 con Bootstrap, AOS y SASS",
+  "scripts": {
+    "sass": "sass --watch src/scss/main.scss public/css/style.css",
+    "clean": "rm -rf public/css/*.css"
+  },
+  "keywords": [
+    "TechFuture",
+    "Bootstrap",
+    "AOS",
+    "SASS"
+  ],
+  "author": "Tu Nombre",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3"
+  },
+  "devDependencies": {
+    "sass": "^1.84.0"
+  }
+}

@@ -1,0 +1,35 @@
+@import 'variables';
+
+#hero {
+    background-image: url('../assets/hero-background.jpg'); // Cambia la URL según tu imagen
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: $white-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    p {
+        font-size: 1.2rem;
+        margin: 20px 0;
+    }
+
+    .btn {
+        background-color: $primary-color;
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+@import 'variables';
+
+#footer {
+    background-color: $dark-color;
+    color: white;
+
+    .container {
+        p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}

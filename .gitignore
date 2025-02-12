@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación y producción
+/dist
+/build
+*.log
+*.bak
+
+# Archivos de configuración del entorno local
+.env
+.env.local
+.env.*.local
+
+# Archivos de IDEs (si usas VSCode, por ejemplo)
+.vscode/
+
+# Archivos de SASS compilados
+/src/scss/*.css
+
+# Archivos de empaquetado o dependencias de herramientas de desarrollo
+/package-lock.json
