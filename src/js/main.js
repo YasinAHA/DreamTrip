@@ -40,31 +40,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Modo oscuro 
-/*     const toggleButton = document.getElementById('dark-mode-toggle');
-    const body = document.body;
-    const icon = document.getElementById('dark-mode-icon');
+    const showModal = () => {
+        const modal = document.getElementById("responseModal");
+        const modalInstance = new bootstrap.Modal(modal);
+        modalInstance.show();
+        modal.removeAttribute("aria-hidden");
 
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        body.classList.add('dark-mode');
-        icon.classList.replace('fa-moon', 'fa-sun');
+        modal.addEventListener('hidden.bs.modal', () => {
+            modal.setAttribute("aria-hidden", "true");
+        });
     }
 
-    toggleButton.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('darkMode', 'enabled');
-            icon.classList.replace('fa-moon', 'fa-sun');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-            icon.classList.replace('fa-sun', 'fa-moon');
-        }
-    });
-
-    // Formulario de contacto con simulación de API
-    const form = document.querySelector('form.needs-validation');
-
+    // Validación y envío del formulario de contacto
+    const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', function (event) {
             if (!form.checkValidity()) {
@@ -88,34 +76,42 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.getElementById("modalMessage").textContent = "Mensaje enviado correctamente.";
 
                         // Inicializar y mostrar el modal
-                        const modal = document.getElementById("responseModal");
-                        const modalInstance = new bootstrap.Modal(modal);
-
-                        modalInstance.show();
-                        modal.removeAttribute("aria-hidden");
-
-                        modal.addEventListener('hidden.bs.modal', () => {
-                            modal.setAttribute("aria-hidden", "true");
-                        });
+                        showModal();
                     })
                     .catch(error => {
                         document.getElementById("modalMessage").textContent = "Error al enviar el mensaje.";
-
-                        const modal = document.getElementById("responseModal");
-                        const modalInstance = new bootstrap.Modal(modal);
-
-                        modalInstance.show();
-                        modal.removeAttribute("aria-hidden");
-
-                        modal.addEventListener('hidden.bs.modal', () => {
-                            modal.setAttribute("aria-hidden", "true");
-                        });
+                        showModal();
                     });
             }
             form.classList.add('was-validated');
         });
     }
- */
+
+
+    // Modo oscuro 
+    /*     const toggleButton = document.getElementById('dark-mode-toggle');
+        const body = document.body;
+        const icon = document.getElementById('dark-mode-icon');
+    
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+    
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+    
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+    
+       
+     */
     // Año actual
     document.getElementById("year").textContent = (new Date()).getFullYear();
 });
