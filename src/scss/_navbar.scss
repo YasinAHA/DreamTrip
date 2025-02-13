@@ -1,20 +1,36 @@
+// Estilos para el Navbar
+
 @import 'variables';
 
-#navbar {
-    background-color: $dark-color;
+.navbar {
+    background-color: $navbar-bg;
+    padding: 1rem;
 
     .navbar-brand {
-        color: $white-color;
+        font-size: 1.5rem;
         font-weight: bold;
-    }
-
-    .navbar-nav .nav-link {
-        color: $white-color;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
+        color: $navbar-text-color;
 
         &:hover {
             color: $primary-color;
         }
+    }
+
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                color: $navbar-text-color;
+                padding: 0.5rem 1rem;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+
+    .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.5);
     }
 }

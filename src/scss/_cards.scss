@@ -1,0 +1,25 @@
+@import 'variables';
+
+.card {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+        color: $dark-color;
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: $dark-color;
+    }
+
+    img {
+        max-height: 250px;
+        object-fit: cover;
+    }
+}

@@ -1,17 +1,26 @@
 @import 'variables';
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+// Estilos específicos
 body {
-    font-family: $font-family;
-    background-color: $secondary-color;
-    color: $dark-color;
+    font-family: $font-family-base;
+    background-color: $background-color;
+    color: $text-color;
 }
 
-a {
-    text-decoration: none;
+.container {
+    max-width: $container-max-width;
+}
+
+// Clases auxiliares
+.text-primary {
+    color: $primary-color;
+}
+
+.btn-primary {
+    background-color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
 }

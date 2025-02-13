@@ -1,8 +1,24 @@
-// Paleta de colores
-$primary-color: #1d4ed8;   // Azul
-$secondary-color: #f3f4f6; // Gris claro
-$dark-color: #111827;      // Gris oscuro
-$white-color: #ffffff;     // Blanco
+// Variables globales
 
-// Fuentes
-$font-family: 'Arial', sans-serif;
+// Paleta de colores
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$dark-color: #111827;      // Gris oscuro
+$white-color: #ffffff;     // Blanco 
+$background-color: #f8f9fa;
+$text-color: #333;
+$navbar-bg: #343a40;
+$navbar-text-color: #ffffff;
+$footer-bg: #212529;
+
+// Tipografía
+$font-family-base: 'Arial', sans-serif;
+
+// Espaciado
+$container-max-width: 1200px;
+$padding-section: 3rem;
+
+// Bordes y sombras
+$border-radius: 5px;
+$box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+

@@ -1,33 +1,47 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Arial", sans-serif;
-  background-color: #f3f4f6;
-  color: #111827;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
-a {
-  text-decoration: none;
+.container {
+  max-width: 1200px;
 }
 
-#navbar {
-  background-color: #111827;
+.text-primary {
+  color: #007bff;
 }
-#navbar .navbar-brand {
-  color: #ffffff;
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: rgb(0, 98.4, 204);
+}
+
+.navbar {
+  background-color: #343a40;
+  padding: 1rem;
+}
+.navbar .navbar-brand {
+  font-size: 1.5rem;
   font-weight: bold;
-}
-#navbar .navbar-nav .nav-link {
   color: #ffffff;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
 }
-#navbar .navbar-nav .nav-link:hover {
-  color: #1d4ed8;
+.navbar .navbar-brand:hover {
+  color: #007bff;
+}
+.navbar .navbar-nav .nav-item .nav-link {
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+.navbar .navbar-nav .nav-item .nav-link:hover {
+  color: #007bff;
+}
+.navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 #hero {
@@ -50,14 +64,14 @@ a {
   margin: 20px 0;
 }
 #hero .btn {
-  background-color: #1d4ed8;
+  background-color: #007bff;
   padding: 12px 30px;
   font-size: 1.1rem;
   border-radius: 30px;
   transition: all 0.3s ease;
 }
 #hero .btn:hover {
-  background-color: rgb(22.9632653061, 61.7632653061, 171.0367346939);
+  background-color: rgb(0, 98.4, 204);
 }
 
 #services .card {
@@ -93,7 +107,7 @@ a {
   transition: all 0.3s ease;
 }
 #footer .container a:hover {
-  color: #1d4ed8;
+  color: #007bff;
 }
 
 /*# sourceMappingURL=style.css.map */
