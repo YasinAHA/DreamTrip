@@ -1,0 +1,97 @@
+#modalEnvio {
+    .modal-dialog {
+        max-width: 500px;
+        transition: transform $transition-medium, opacity $transition-medium;
+    }
+
+    .modal-content {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: $border-radius;
+        box-shadow: $shadow-heavy;
+        overflow: hidden;
+        transition: all $transition-fast;
+
+        &:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    .modal-header {
+        background-color: $primary-color;
+        color: $light-color;
+        border-bottom: none;
+        padding: $spacing-md;
+
+        .modal-title {
+            font-weight: bold;
+            font-size: $font-size-lg;
+        }
+
+        .btn-close {
+            filter: invert(1);
+            transition: transform $transition-fast;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .modal-body {
+        font-size: $font-size-base;
+        color: $dark-color;
+        padding: $spacing-lg;
+        text-align: center;
+    }
+
+    .modal-footer {
+        border-top: none;
+        padding: $spacing-md;
+        display: flex;
+        justify-content: center;
+
+        .btn {
+            font-weight: bold;
+            transition: transform $transition-fast;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    // Modo oscuro
+    .dark-mode & {
+        .modal-content {
+            background: darken($dark-bg, 10%);
+            color: $light-color;
+            box-shadow: none;
+        }
+
+        .modal-header {
+            background-color: $accent-color;
+            color: $dark-bg;
+
+            .btn-close {
+                filter: invert(0);
+            }
+        }
+
+        .modal-body {
+            color: lighten($light-color, 10%);
+        }
+
+        .modal-footer {
+            .btn {
+                background-color: lighten($dark-bg, 15%);
+                color: $light-color;
+                border: none;
+
+                &:hover {
+                    background-color: lighten($dark-bg, 25%);
+                }
+            }
+        }
+    }
+}

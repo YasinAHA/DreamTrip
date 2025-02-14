@@ -1,36 +1,205 @@
-// Estilos para el Navbar
+// _navbar.scss
 
-@import 'variables';
-
-.navbar {
-    background-color: $navbar-bg;
-    padding: 1rem;
+#mainNav {
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
 
     .navbar-brand {
-        font-size: 1.5rem;
         font-weight: bold;
-        color: $navbar-text-color;
+        color: $light-color; // Blanco al inicio
+        transition: $transition-fast;
 
         &:hover {
-            color: $primary-color;
+            color: darken($light-color, 10%);
         }
     }
 
-    .navbar-nav {
-        .nav-item {
-            .nav-link {
-                color: $navbar-text-color;
-                padding: 0.5rem 1rem;
-                transition: color 0.3s ease;
+    .nav-link {
+        color: $light-color; // Blanco al inicio
+        position: relative;
+        transition: color $transition-fast;
 
-                &:hover {
-                    color: $primary-color;
-                }
+        &:hover, &.active-link {
+            color: $secondary-color; // Celeste brillante al activarse
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width: 100%;
+                height: 2px;
+                background-color: $secondary-color;
+                transition: width 0.3s ease-in-out;
             }
         }
     }
 
+    // Botón del menú hamburguesa (inicialmente blanco)
     .navbar-toggler {
-        border-color: rgba(255, 255, 255, 0.5);
+        border-color: $light-color;
+
+        &:focus, &:hover {
+            border-color: $secondary-color;
+        }
+
+
+    }
+
+    // Botón de modo oscuro
+    #darkModeToggle {
+        border-color: $light-color;
+        color: $light-color;
+        transition: $transition-fast;
+
+        &:hover {
+            color: $secondary-color;
+            border-color: $secondary-color;
+        }
+
+        #darkModeIcon {
+            transition: transform 0.3s ease-in-out;
+        }
+    }
+
+    // Cambios cuando se hace scroll
+    &.navbar-shrink {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: $shadow-heavy;
+
+        .navbar-brand {
+            color: $primary-color; // Azul profundo al hacer scroll
+        }
+
+        .nav-link {
+            color: $dark-color; // Gris oscuro al hacer scroll
+
+            &:hover, &.active-link {
+                color: $secondary-color;
+
+                &::after {
+                    background-color: $secondary-color;
+                }
+            }
+        }
+
+        // Cambio de color del icono del menú hamburguesa
+        .navbar-toggler {
+            border-color: $dark-color;
+
+            &:focus, &:hover {
+                border-color: $secondary-color;
+            }
+
+            .navbar-toggler-icon {
+                filter: invert(1);
+            }
+        }
+
+        // Botón de modo oscuro en navbar con scroll
+        #darkModeToggle {
+            border-color: $dark-color;
+            color: $dark-color;
+
+            &:hover {
+                color: $secondary-color;
+                border-color: $secondary-color;
+            }
+        }
+    }
+}
+
+// Modo oscuro
+.dark-mode {
+    background-color: $dark-bg;
+    color: $light-color;
+
+    #mainNav {
+        background-color: transparent;
+
+        .navbar-brand {
+            color: $light-color; // Blanco al inicio
+
+            &:hover {
+                color: lighten($light-color, 20%);
+            }
+        }
+
+        .nav-link {
+            color: $light-color; // Blanco al inicio
+
+            &:hover, &.active-link {
+                color: $accent-color; // Amarillo arena
+
+                &::after {
+                    background-color: $accent-color;
+                }
+            }
+        }
+
+        .navbar-toggler {
+            border-color: $light-color;
+
+            &:focus, &:hover {
+                border-color: $accent-color;
+            }
+        }
+
+        // Botón de modo oscuro en modo oscuro
+        #darkModeToggle {
+            border-color: $light-color;
+            color: $light-color;
+
+            &:hover {
+                color: $accent-color;
+                border-color: $accent-color;
+            }
+        }
+
+        &.navbar-shrink {
+            background-color: rgba(0, 0, 0, 0.95);
+            box-shadow: $shadow-heavy;
+
+            .navbar-brand {
+                color: $accent-color; // Amarillo arena al hacer scroll
+            }
+
+            .nav-link {
+                color: $light-color; // Blanco puro al hacer scroll
+
+                &:hover, &.active-link {
+                    color: $accent-color;
+
+                    &::after {
+                        background-color: $accent-color;
+                    }
+                }
+            }
+
+            // Ajustes del icono hamburguesa en modo oscuro
+            .navbar-toggler {
+                border-color: $accent-color;
+
+                &:focus, &:hover {
+                    border-color: lighten($accent-color, 10%);
+                }
+
+                .navbar-toggler-icon {
+                    filter: invert(0); // Oscuro en modo oscuro
+                }
+            }
+
+            // Botón de modo oscuro en navbar con scroll en modo oscuro
+            #darkModeToggle {
+                border-color: $accent-color;
+                color: $accent-color;
+
+                &:hover {
+                    color: lighten($accent-color, 10%);
+                    border-color: lighten($accent-color, 10%);
+                }
+            }
+        }
     }
 }

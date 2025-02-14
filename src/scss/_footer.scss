@@ -1,22 +1,98 @@
-@import 'variables';
-
-#footer {
-    background-color: $dark-color;
-    color: white;
+footer {
+    background: $dark-bg;
+    color: $light-color;
+    padding: $spacing-lg 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
 
     .container {
-        p {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    h5 {
+        color: $secondary-color;
+        font-size: $font-size-lg;
+        margin-bottom: $spacing-sm;
+    }
+
+    p, a {
+        color: lighten($light-color, 10%);
+        text-decoration: none;
+        transition: color $transition-fast;
+
+        &:hover {
+            color: $secondary-color !important;
         }
+    }
+
+    .social-icons {
+        margin-top: $spacing-md;
 
         a {
             font-size: 1.5rem;
-            transition: all 0.3s ease;
+            margin: 0 $spacing-sm;
+            transition: transform $transition-fast, color $transition-fast;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
 
             &:hover {
-                color: $primary-color;
+                color: $secondary-color;
+                background: lighten($secondary-color, 15%);
+                transform: scale(1.1);
             }
+        }
+    }
+
+    .footer-bottom {
+        background: rgba(0, 0, 0, 0.2);
+        padding: $spacing-sm 0;
+        margin-top: $spacing-lg;
+        font-size: $font-size-sm;
+        color: lighten($light-color, 20%);
+    }
+
+    #copyright {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: $spacing-sm;
+    }
+
+    // **Modo Oscuro**
+    .dark-mode & {
+        background: lighten($dark-bg, 5%);
+        color: $light-color;
+
+        h5 {
+            color: $accent-color !important;
+        }
+
+        p, a {
+            color: lighten($light-color, 15%);
+            &:hover {
+                color: darken($accent-color, 10%) !important;
+            }
+        }
+
+        .social-icons a {
+            background: rgba(255, 255, 255, 0.2);
+            &:hover {
+                background: lighten($dark-bg, 15%);
+            }
+        }
+
+        .footer-bottom {
+            background: rgba(255, 255, 255, 0.1);
+            color: lighten($light-color, 20%);
+        }
+
+        #copyright {
+            background-color: rgba(255, 255, 255, 0.1);
         }
     }
 }

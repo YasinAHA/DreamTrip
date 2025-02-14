@@ -1,117 +1,151 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Detectar modo oscuro desde localStorage antes de cargar la página
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            document.body.classList.add('dark-mode');
+        }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Inicialización de AOS (Animaciones al hacer scroll)
-    AOS.init({
-        once: false,
-        duration: 1200,  // Duración de la animación
-        disable: window.innerWidth <= 768
-    });
+        // Spinner - Simulación de carga de la página
+        const showSpinner = async () => {
+            document.getElementById("loadingSpinner").classList.remove("d-none");
+        };
 
-    // Animación de las barras de progreso
-    const animateBars = () => {
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-            setTimeout(() => {
-                const width = bar.getAttribute('data-width');
-                bar.style.width = width;
-            }, 100); // Pequeño retraso para que el reinicio sea visible
+        const hideSpinner = async () => {
+            await new Promise(resolve => setTimeout(resolve, 1500)); // Simulación de carga
+            document.getElementById("loadingSpinner").classList.add("d-none");
+        };
+
+        await showSpinner();
+        await hideSpinner();
+
+        console.log("Página completamente cargada");
+
+        // Inicializar AOS (Animaciones)
+        AOS.init({
+            once: false,
+            duration: 1000
         });
-    };
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateBars();
-            } else {
-                document.querySelectorAll('.progress-bar').forEach(bar => {
-                    bar.style.width = 0;
+        // Inicializar tooltips y popovers de Bootstrap
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+        document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => new bootstrap.Popover(el));
+
+        // Navbar: Reducir tamaño y cambiar color al hacer scroll
+        const navbar = document.querySelector('#mainNav');
+        const navbarShrink = () => {
+            if (!navbar) return;
+            navbar.classList.toggle('navbar-shrink', window.scrollY > 50);
+        };
+
+        navbarShrink();
+        document.addEventListener('scroll', navbarShrink);
+
+        // Activar ScrollSpy en el Navbar
+        if (navbar) {
+            new bootstrap.ScrollSpy(document.body, {
+                target: '#mainNav',
+                rootMargin: '0px 0px -40%',
+            });
+        }
+
+        // Cerrar menú responsive al hacer clic en un enlace
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        if (navbarToggler) {
+            document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.getComputedStyle(navbarToggler).display !== 'none') {
+                        navbarToggler.click();
+                    }
                 });
-            }
-        });
-    }, { threshold: 0.5 });
-
-    if (!(window.innerWidth < 768)) {
-        if (document.querySelector('#about')) {
-            observer.observe(document.querySelector('#about'));
+            });
         }
-    } else {
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            bar.style.width = width;
-        });
-    }
 
-    const showModal = () => {
-        const modal = document.getElementById("responseModal");
-        const modalInstance = new bootstrap.Modal(modal);
-        modalInstance.show();
-        modal.removeAttribute("aria-hidden");
+        // Resaltar el enlace activo en el navbar con una línea inferior
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
 
-        modal.addEventListener('hidden.bs.modal', () => {
-            modal.setAttribute("aria-hidden", "true");
-        });
-    }
+        const highlightActiveLink = () => {
+            let scrollPos = window.scrollY + 200;
+            sections.forEach(section => {
+                if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                    navLinks.forEach(link => link.classList.remove('active-link'));
+                    document.querySelector(`.nav-link[href="#${section.id}"]`)?.classList.add('active-link');
+                }
+            });
+        };
 
-    // Validación y envío del formulario de contacto
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-            } else {
-                event.preventDefault();
-                const name = document.getElementById("name").value;
-                const email = document.getElementById("email").value;
-                const message = document.getElementById("message").value;
+        document.addEventListener('scroll', highlightActiveLink);
+        highlightActiveLink();
 
-                fetch("https://jsonplaceholder.typicode.com/posts", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name, email, message })
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
+        // Modo Oscuro con localStorage
+        const darkModeToggle = document.querySelector('#darkModeToggle');
+        const darkModeIcon = document.querySelector('#darkModeIcon');
 
-                        document.getElementById("modalMessage").textContent = "Mensaje enviado correctamente.";
+        const enableDarkMode = () => {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled');
+            darkModeIcon.classList.replace('bi-moon', 'bi-sun');
+        };
 
-                        // Inicializar y mostrar el modal
-                        showModal();
-                    })
-                    .catch(error => {
-                        document.getElementById("modalMessage").textContent = "Error al enviar el mensaje.";
-                        showModal();
-                    });
-            }
-            form.classList.add('was-validated');
-        });
-    }
+        const disableDarkMode = () => {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled');
+            darkModeIcon.classList.replace('bi-sun', 'bi-moon');
+        };
 
-
-    // Modo oscuro 
-    /*     const toggleButton = document.getElementById('dark-mode-toggle');
-        const body = document.body;
-        const icon = document.getElementById('dark-mode-icon');
-    
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            body.classList.add('dark-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
+        if (isDarkMode) {
+            enableDarkMode();
         }
-    
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-    
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                localStorage.setItem('darkMode', 'disabled');
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-        });
-    
-       
-     */
-    // Año actual
-    document.getElementById("year").textContent = (new Date()).getFullYear();
+
+        if (darkModeToggle) {
+            darkModeToggle.addEventListener('click', () => {
+                document.body.classList.contains('dark-mode') ? disableDarkMode() : enableDarkMode();
+            });
+        }
+
+        // FUNCIONALIDAD DEL FORMULARIO DE CONTACTO
+        const form = document.querySelector(".needs-validation");
+        if (form) {
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault(); // Evita que se recargue la página
+                
+                if (!form.checkValidity()) {
+                    event.stopPropagation();
+                    form.classList.add("was-validated"); // Muestra los errores de validación
+                    return;
+                }
+
+                // Simular envío con delay
+                const submitButton = form.querySelector("button[type='submit']");
+                submitButton.disabled = true; // Desactiva el botón temporalmente
+                submitButton.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...`;
+
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Simulación del envío
+
+                // Mostrar modal de confirmación
+                const modal = new bootstrap.Modal(document.getElementById("modalEnvio"));
+                modal.show();
+
+                // Resetear formulario
+                form.reset();
+                form.classList.remove("was-validated");
+
+                // Restaurar botón
+                submitButton.disabled = false;
+                submitButton.innerHTML = `<i class="bi bi-send"></i> Enviar Mensaje`;
+            });
+        }
+
+        
+        // Actualizar el año en el footer automáticamente
+        const yearElement = document.querySelector("#year");
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+
+    } catch (error) {
+        console.error("Error durante la carga de la página:", error);
+        document.getElementById("loadingSpinner").classList.add("d-none"); // Asegurar que el spinner se oculta en caso de error
+    }
 });
