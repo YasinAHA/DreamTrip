@@ -1,18 +1,20 @@
 {
-  "name": "techfuture2025",
+  "name": "yasinaha-dreamtrip",
   "version": "1.0.0",
-  "description": "Sitio web de TechFuture 2025 con Bootstrap, AOS y SASS",
+  "description": "Sitio web de viajes Yasinaha DreamTrip con Bootstrap, AOS y SASS",
   "scripts": {
     "sass": "sass --watch src/scss/main.scss public/css/style.css",
-    "clean": "rm -rf public/css/*.css"
+    "clean": "rm -rf public/css/*.css",
+    "start": "npx live-server public"
   },
   "keywords": [
-    "TechFuture",
+    "Yasinaha DreamTrip",
+    "Viajes",
     "Bootstrap",
     "AOS",
     "SASS"
   ],
-  "author": "Tu Nombre",
+  "author": "Yasin",
   "license": "ISC",
   "dependencies": {
     "aos": "^2.3.4",
@@ -20,6 +22,7 @@
     "bootstrap-icons": "^1.11.3"
   },
   "devDependencies": {
-    "sass": "^1.84.0"
+    "sass": "^1.84.0",
+    "live-server": "^1.2.2"
   }
 }

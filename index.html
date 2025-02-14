@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO -->
+    <title>Explora el Mundo - Descubre Destinos Increíbles</title>
+    <meta name="description"
+        content="Explora el Mundo: La mejor agencia de viajes para descubrir destinos inolvidables. Reserva hoteles, guías turísticas y paquetes de viaje exclusivos.">
+    <meta name="keywords"
+        content="viajes, destinos, turismo, paquetes de viaje, hoteles, experiencias, vacaciones, guías turísticas">
+    <meta name="author" content="Explora el Mundo">
+    <meta name="robots" content="index, follow">
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap CSS desde CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons desde CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
+    <!-- AOS CSS desde CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <!-- Bootstrap Bundle JS (con Popper) desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- AOS JS desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+    <!-- Enlace al css y js personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="../src/js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Spinner -->
+    <div id="loadingSpinner" class="d-none position-fixed top-50 start-50 translate-middle">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Cargando...</span>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top navbar-dark" data-aos="fade-down">
+        <div class="container">
+            <!-- Logo con icono de Bootstrap -->
+            <a class="navbar-brand" href="#"><i class="bi bi-globe"></i> Explora el Mundo</a>
+
+            <div class="d-flex align-items-center">
+                <!-- Botón para alternar Modo Oscuro -->
+                <button id="darkModeToggle" class="btn btn-sm btn-outline-light me-3 d-flex align-items-center">
+                    <i id="darkModeIcon" class="bi bi-moon"></i>
+                </button>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero"><i class="bi bi-house-door"></i> Inicio</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#destinos" id="destinosDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-map"></i> Destinos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="destinosDropdown">
+                            <li><a class="dropdown-item" href="#paris"><i class="bi bi-building"></i> París</a></li>
+                            <li><a class="dropdown-item" href="#tokyo"><i class="bi bi-sun"></i> Tokio</a></li>
+                            <li><a class="dropdown-item" href="#newyork"><i class="bi bi-buildings"></i> Nueva York</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#servicios" id="serviciosDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-briefcase"></i> Servicios
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="serviciosDropdown">
+                            <li><a class="dropdown-item" href="#paquetes"><i class="bi bi-box-seam"></i> Paquetes de
+                                    Viaje</a></li>
+                            <li><a class="dropdown-item" href="#guia"><i class="bi bi-book"></i> Guía Turística</a></li>
+                            <li><a class="dropdown-item" href="#alojamiento"><i class="bi bi-building"></i>
+                                    Alojamiento</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#testimonios"><i class="bi bi-chat-left-quote"></i>
+                            Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto"><i class="bi bi-envelope"></i>
+                            Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section text-white text-center d-flex align-items-center justify-content-center"
+        data-aos="zoom-in">
+        <div class="container">
+            <h1 class="display-4 fw-bold" data-aos="fade-up">Descubre el mundo con nosotros</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="200">Explora destinos increíbles y vive experiencias
+                inolvidables.</p>
+            <!-- Botón con Tooltip -->
+            <a href="#destinos" class="btn btn-primary btn-lg" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Descubre nuestros destinos más populares" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-arrow-right-circle"></i> Explora Destinos
+            </a>
+        </div>
+    </section>
+
+    <!-- Destinos Destacados -->
+    <section class="destinos-section py-5" id="destinos" data-aos="fade-up">
+        <div class="container px-4 px-lg-5">
+            <h2 class="text-center mb-5" data-aos="fade-up">Destinos Destacados</h2>
+            <!-- Destino 1 -->
+            <div id="paris" class="row gx-0 mb-4 mb-lg-5 align-items-center" data-aos="fade-right">
+                <div class="col-xl-8 col-lg-7">
+                    <img loading="lazy" class="img-fluid mb-3 mb-lg-0" src="assets/img/paris.webp" alt="París" />
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text w-100 text-center text-lg-left">
+                        <h4 data-aos="fade-left">París, Francia</h4>
+                        <p class="text-50 mb-0" data-aos="fade-left" data-aos-delay="200">Explora la ciudad del
+                            amor y su icónica Torre Eiffel.</p>
+                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Información Extra"
+                            data-bs-content="París es una de las ciudades más visitadas del mundo con más de 30 millones de turistas al año."
+                            data-aos="fade-left" data-aos-delay="400">
+                            Más información sobre París
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Destino 2 -->
+            <div id="tokyo" class="row gx-0 mb-5 mb-lg-0 justify-content-center" data-aos="fade-left">
+                <div class="col-lg-6">
+                    <img loading="lazy" class="img-fluid" src="assets/img/tokyo.webp" alt="Tokio" />
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white" data-aos="fade-right">Tokio, Japón</h4>
+                                <p class="mb-0 text-white-50" data-aos="fade-right" data-aos-delay="200">Descubre la
+                                    fusión de modernidad y tradición en Tokio.</p>
+                                <button type="button" class="btn btn-info" data-bs-toggle="popover"
+                                    title="Información Extra"
+                                    data-bs-content="Tokio combina rascacielos modernos con templos históricos en un entorno vibrante y tecnológico."
+                                    data-aos="fade-right" data-aos-delay="400">
+                                    Más información sobre Tokio
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Destino 3 -->
+            <div id="newyork" class="row gx-0 justify-content-center" data-aos="fade-right">
+                <div class="col-lg-6">
+                    <img loading="lazy" class="img-fluid" src="assets/img/newyork.webp" alt="Nueva York" />
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white" data-aos="fade-left">Nueva York, EE.UU.</h4>
+                                <p class="mb-0 text-white-50" data-aos="fade-left" data-aos-delay="200">Vive la energía
+                                    de la Gran Manzana y sus rascacielos.</p>
+                                <button type="button" class="btn btn-info" data-bs-toggle="popover"
+                                    title="Información Extra"
+                                    data-bs-content="Nueva York es conocida como la ciudad que nunca duerme, con atracciones icónicas como Times Square y Central Park."
+                                    data-aos="fade-left" data-aos-delay="400">
+                                    Más información sobre Nueva York
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" data-aos="fade-up">
+        <h2 class="text-center mb-4" data-aos="fade-up">Nuestros Servicios</h2>
+        <div class="row text-center">
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div id="paquetes" class="card p-4">
+                    <i class="bi bi-box-seam display-4 text-primary"></i>
+                    <h5 class="mt-3">Paquetes de Viaje</h5>
+                    <p>Ofrecemos paquetes turísticos personalizados a los destinos más populares del mundo.</p>
+                </div>
+            </div>
+            <div id="guia" class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card p-4">
+                    <i class="bi bi-book display-4 text-primary"></i>
+                    <h5 class="mt-3">Guía Turística</h5>
+                    <p>Accede a guías detalladas y consejos útiles para tu próximo viaje.</p>
+                </div>
+            </div>
+            <div id="alojamiento" class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                <div class="card p-4">
+                    <i class="bi bi-building display-4 text-primary"></i>
+                    <h5 class="mt-3">Alojamiento</h5>
+                    <p>Encuentra y reserva los mejores hoteles y alojamientos en cualquier destino.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Button Group con animaciones -->
+        <div class="d-flex justify-content-center py-3" data-aos="fade-up" data-aos-delay="800">
+            <div class="btn-group" role="group" aria-label="Opciones de servicio">
+                <button type="button" class="btn btn-primary">Explorar</button>
+                <button type="button" class="btn btn-success">Reservar</button>
+                <button type="button" class="btn btn-warning">Más información</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios con Carrusel-->
+    <section id="testimonios" data-aos="fade-up">
+        <h2 class="text-center mb-4" data-aos="fade-up">Lo que dicen nuestros viajeros</h2>
+        <div id="carouselTestimonios" class="carousel slide" data-bs-ride="carousel" data-aos="fade-up"
+            data-aos-delay="200">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row text-center">
+                        <div class="col-md-4" data-aos="fade-right" data-aos-delay="300">
+                            <div class="card p-4">
+                                <img loading="lazy" src="assets/img/testimonials-1.webp"
+                                    class="rounded-circle mx-auto d-block" alt="Usuario 1" width="80">
+                                <h5 class="mt-3">Carlos Ramírez</h5>
+                                <p class="text-muted">"Una experiencia inolvidable, todo estuvo perfectamente
+                                    organizado."</p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-half text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                            <div class="card p-4">
+                                <img loading="lazy" src="assets/img/testimonials-2.webp"
+                                    class="rounded-circle mx-auto d-block" alt="Usuario 2" width="80">
+                                <h5 class="mt-3">María González</h5>
+                                <p class="text-muted">"Los mejores destinos y un servicio de primera. ¡Muy recomendado!"
+                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" data-aos="fade-left" data-aos-delay="500">
+                            <div class="card p-4">
+                                <img loading="lazy" src="assets/img/testimonials-3.webp"
+                                    class="rounded-circle mx-auto d-block" alt="Usuario 3" width="80">
+                                <h5 class="mt-3">Fernando López</h5>
+                                <p class="text-muted">"Viajar con ellos fue una gran decisión. Todo estuvo excelente."
+                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <div class="card p-4">
+                                <img loading="lazy" src="assets/img/testimonials-4.webp"
+                                    class="rounded-circle mx-auto d-block" alt="Usuario 4" width="80">
+                                <h5 class="mt-3">Laura Méndez</h5>
+                                <p class="text-muted">"Una agencia increíble, hicieron mi viaje mucho más fácil y
+                                    placentero."</p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card p-4">
+                                <img loading="lazy" src="assets/img/testimonials-5.webp"
+                                    class="rounded-circle mx-auto d-block" alt="Usuario 5" width="80">
+                                <h5 class="mt-3">Diego Fernández</h5>
+                                <p class="text-muted">"Muy profesional y organizado, repetiré en mi próximo viaje."
+                                </p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card p-4">
+                                <img loading="lazy" src="assets/img/testimonials-6.webp"
+                                    class="rounded-circle mx-auto d-block" alt="Usuario 6" width="80">
+                                <h5 class="mt-3">Sofía Herrera</h5>
+                                <p class="text-muted">"El mejor viaje de mi vida, sin duda alguna volveré a viajar
+                                    con ellos."</p>
+                                <div class="d-flex justify-content-center">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonios"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonios"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" data-aos="fade-up">
+        <h2 class="text-center mb-4" data-aos="fade-up">Contáctanos</h2>
+        <p class="text-center" data-aos="fade-up" data-aos-delay="200">¿Tienes preguntas? Envíanos un mensaje y te
+            responderemos lo antes posible.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3" data-aos="fade-right" data-aos-delay="400">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                        <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                    </div>
+                    <div class="mb-3" data-aos="fade-left" data-aos-delay="500">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="invalid-feedback">Por favor, ingresa un correo electrónico válido.</div>
+                    </div>
+                    <div class="mb-3" data-aos="fade-right" data-aos-delay="600">
+                        <label for="mensaje" class="form-label">Mensaje</label>
+                        <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                        <div class="invalid-feedback">Por favor, escribe un mensaje.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100" data-aos="fade-up" data-aos-delay="700"><i
+                            class="bi bi-send"></i> Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="800">
+            <h5>Síguenos en nuestras redes sociales</h5>
+            <a href="#" class="me-3" data-aos="flip-left" data-aos-delay="900"><i
+                    class="bi bi-facebook fs-3 text-primary"></i></a>
+            <a href="#" class="me-3" data-aos="flip-left" data-aos-delay="1000"><i
+                    class="bi bi-instagram fs-3 text-danger"></i></a>
+            <a href="#" data-aos="flip-left" data-aos-delay="1100"><i class="bi bi-twitter fs-3 text-info"></i></a>
+        </div>
+    </section>
+
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="modalEnvio" tabindex="-1" aria-labelledby="modalEnvioLabel" aria-hidden="true"
+        data-aos="zoom-in">
+        <div class="modal-dialog" data-aos="fade-up" data-aos-delay="200">
+            <div class="modal-content" data-aos="flip-down" data-aos-delay="400">
+                <div class="modal-header" data-aos="fade-down" data-aos-delay="600">
+                    <h5 class="modal-title" id="modalEnvioLabel">Mensaje Enviado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" data-aos="fade-up" data-aos-delay="800">
+                    Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo pronto.
+                </div>
+                <div class="modal-footer" data-aos="fade-up" data-aos-delay="1000">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5" data-aos="fade-up">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <!-- Sección Información -->
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" data-aos="fade-right" data-aos-delay="200">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Explora el Mundo</h5>
+                    <p>Tu agencia de viajes de confianza, ofreciéndote experiencias inolvidables en los destinos más
+                        espectaculares del mundo.</p>
+                </div>
+
+                <!-- Sección Enlaces Útiles -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" data-aos="fade-up" data-aos-delay="400">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Enlaces</h5>
+                    <p><a href="#hero" class="text-white" style="text-decoration: none;">Inicio</a></p>
+                    <p><a href="#destinos" class="text-white" style="text-decoration: none;">Destinos</a></p>
+                    <p><a href="#servicios" class="text-white" style="text-decoration: none;">Servicios</a></p>
+                    <p><a href="#contacto" class="text-white" style="text-decoration: none;">Contacto</a></p>
+                </div>
+
+                <!-- Sección Contacto -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" data-aos="fade-left" data-aos-delay="600">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Contacto</h5>
+                    <p><i class="bi bi-geo-alt"></i> Calle 123, Ávila, España</p>
+                    <p><i class="bi bi-envelope"></i> info@exploraelmundo.com</p>
+                    <p><i class="bi bi-phone"></i> +123 456 789</p>
+                    <p><i class="bi bi-clock"></i> Lunes - Viernes: 9:00 - 18:00</p>
+                </div>
+
+                <!-- Sección Redes Sociales -->
+                <div class="social-icons col-md-3 col-lg-3 col-xl-3 mx-auto mt-3" data-aos="fade-up"
+                    data-aos-delay="800">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-info">Síguenos</h5>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" data-aos="flip-left"
+                        data-aos-delay="900"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" data-aos="flip-left"
+                        data-aos-delay="1000"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" data-aos="flip-left"
+                        data-aos-delay="1100"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1" data-aos="flip-left"
+                        data-aos-delay="1200"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div id="copyright" class="text-center p-3">
+            &copy; <span id="year"></span> Explora el Mundo. Todos los derechos reservados.
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
